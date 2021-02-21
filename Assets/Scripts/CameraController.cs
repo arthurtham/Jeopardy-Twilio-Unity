@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour
         transform.position = new Vector3(
             transform.position.x + 0.25f,
             transform.position.y + 0.05f,
-            transform.position.z
+            transform.position.z + (rotateLeft ? -0.05f : 0.00f)
         );
 
         if (rotateRight && (rotationValue < 0.05f)) {
