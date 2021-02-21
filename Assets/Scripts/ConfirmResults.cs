@@ -15,7 +15,7 @@ public class ConfirmResults : MonoBehaviour
     {
         roomCode = Global.roomCode;
         // A correct website page.
-        StartCoroutine(GetRequest("http://127.0.0.1:5000/unity?command="+"resolve"+"&room_code="+roomCode));
+        StartCoroutine(GetRequest(""+Global.api+"/unity?command="+"resolve"+"&room_code="+roomCode));
     }
 
     // public void FetchCode() {
@@ -23,9 +23,16 @@ public class ConfirmResults : MonoBehaviour
     // }
 
     void HandleText(string text) {
-        GameObject.Find("Result Text").GetComponent<Text>().text = text;
-        roomCode = text;
-        Global.roomCode = text;
+        char[] delimiterChars = { ',' };
+
+       // GameObject.Find("Result Text").GetComponent<Text>().text = text;
+        //roomCode = text;
+        
+        string[] words = text.Split(delimiterChars);
+        GameObject.Find("Correct Text").GetComponent<Text>().text = words[0] + " people got it right!";
+        GameObject.Find("Wrong Text").GetComponent<Text>().text = words[1] + " people got it wrong.";
+        GameObject.Find("Answer Text").GetComponent<Text>().text = words[5];
+        //Global.roomCode = text;
     }
 
     IEnumerator GetRequest(string uri)

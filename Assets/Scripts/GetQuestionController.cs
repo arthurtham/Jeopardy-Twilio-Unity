@@ -17,7 +17,7 @@ public class GetQuestionController : MonoBehaviour
     {
         // A correct website page.
         roomCode = Global.roomCode;
-        StartCoroutine(GetRequest("http://127.0.0.1:5000/unity?command="+"start"+"&room_code="+roomCode+""));
+        StartCoroutine(GetRequest(""+Global.api+"/unity?command="+"start"+"&room_code="+roomCode+""));
     }
 
     public void startJeopardySequence() {

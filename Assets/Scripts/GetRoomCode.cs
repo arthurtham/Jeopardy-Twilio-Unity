@@ -18,7 +18,7 @@ public class GetRoomCode : MonoBehaviour
     }
 
     public void FetchCode() {
-        StartCoroutine(GetRequest("http://127.0.0.1:5000/unity?command="+"create"));
+        StartCoroutine(GetRequest(""+Global.api+"/unity?command="+"create"));
     }
 
     void HandleText(string text) {
