@@ -7,7 +7,11 @@ public class Global : MonoBehaviour
     private static Global playerInstance;
     public static string roomCode;
 
-    public static string api = "http://127.0.0.1:5000";
+    public static string api = "http://sandbox.arttham.com:5170";
+
+    public static void ChangeAPI(string newApi) {
+        api = newApi;
+    }
     
     void Awake(){
             DontDestroyOnLoad (this);
